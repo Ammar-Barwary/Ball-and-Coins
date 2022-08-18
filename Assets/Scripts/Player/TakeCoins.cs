@@ -10,6 +10,7 @@ public class TakeCoins : MonoBehaviour
     TextMeshProUGUI textCoin;
     public Transform MainCoin;
     public Transform Panel;
+    public Transform CoinAudio;
 
     void Start()
     {
@@ -24,7 +25,16 @@ public class TakeCoins : MonoBehaviour
         {
             coinCounter += 1;
             textCoin.text = " Coins " + maxCoins + @" \ " + coinCounter;
+            SoundOn();
             Destroy(collision.gameObject);
         }
+    }
+
+    public void SoundOn()
+    {
+        Transform obj = Instantiate(CoinAudio, transform.position, new Quaternion());
+        obj.gameObject.SetActive(true);
+        float time = obj.GetComponent<AudioSource>().clip.length;
+        Destroy(obj.gameObject, time);
     }
 }
