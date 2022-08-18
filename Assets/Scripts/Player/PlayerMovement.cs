@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     float X_axis;
     float Y_axis;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         Y_axis = transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -36,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (jump == true && ground.Length > 0)
             rb.velocity = new Vector2(0, Jump);
 
-        if (transform.position.y < -7)
+        if (transform.position.y < -10)
             transform.position = new Vector3(X_axis, Y_axis);
     }
 
