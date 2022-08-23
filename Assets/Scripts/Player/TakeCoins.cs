@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TakeCoins : MonoBehaviour
 {
     int maxCoins = 0;
     int coinCounter = 0;
     TextMeshProUGUI textCoin;
+    public string loadScene;
     public Transform MainCoin;
     public Transform Panel;
     public Transform CoinAudio;
@@ -27,6 +29,9 @@ public class TakeCoins : MonoBehaviour
             textCoin.text = " Coins " + maxCoins + @" \ " + coinCounter;
             SoundOn();
             Destroy(collision.gameObject);
+
+            if (maxCoins == coinCounter)
+                SceneManager.LoadScene(loadScene);
         }
     }
 
