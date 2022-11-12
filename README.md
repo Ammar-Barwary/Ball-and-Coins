@@ -1,5 +1,5 @@
 # Ball-and-Coins
 
-Created by Ammar Barwary.
+made by Ammar Barwary.
 
-This game is my first game.
+This game is my first game made in Uinty engine.
